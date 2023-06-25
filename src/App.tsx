@@ -5,6 +5,7 @@ import Home from './components/Home/Home'
 import Products from './components/Products/Products'
 import Promotions from './components/Promotions/Promotions'
 import Contact from './components/Contact/Contact'
+import DetailBag from './components/ProductDetails/DetailBag'
 
 const App = () => {
 
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/Products" element={<Products />} />
         <Route path="/Promotions" element={<Promotions />} />
         <Route path="/Contact" element={<Contact />} />
+        <Route path="/ProductDetails/DetailBag" element={<DetailBag />} />
       </Routes>
     </>
   )

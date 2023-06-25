@@ -2,11 +2,13 @@ import {
     Card, CardContent, CardMedia, Rating,
     Typography, CardActionArea, Grid, Box
 } from '@mui/material';
-import PicCoverSneaker from '../../Pictures/Sneaker/PicCoverSneaker.jpeg'
+import PicCoverSneaker from '../../Pictures/Sneaker/PicSneakerCover.jpeg'
 
 export default function ItemSneaker() {
     const value = 5;
     const price = 3400;
+    const formattedPrice = price.toLocaleString(); 
+
     return (
         <>
             <Card style={{ width: 200, height: 400 }} sx={{ maxWidth: 345 }}>
@@ -28,7 +30,7 @@ export default function ItemSneaker() {
                                 <h3 style={{ color: "#0079FF" }}>Buy now</h3>
                             </Grid>
                             <Grid item xs={4}>
-                                <h3 style={{ color: "#0079FF", textAlign: 'center' }}>฿{price}</h3>
+                                <h3 style={{ color: "#0079FF", textAlign: 'center' }}>฿{formattedPrice}</h3>
                             </Grid>
                         </Grid>
                         <Box

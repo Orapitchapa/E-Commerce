@@ -1,46 +1,36 @@
-import {
-    Card, CardContent, CardMedia, Rating,
-    Typography, CardActionArea, Grid, Box
-} from '@mui/material';
-import PicBagCover from '../../Pictures/Bag/PicBagCover.jpeg'
+import { Grid } from "@mui/material";
+import ItemBag from "../ProductItems/ItemBag";
+import ItemSneaker from "../ProductItems/ItemSneaker";
+import ItemStandy from "../ProductItems/ItemStandy";
+import ItemTshirt from "../ProductItems/ItemTshirt";
 
-export default function ItemBag() {
-    const value = 5;
-    const price = 120;
+const BestSeller = () => {
     return (
         <>
-            <Card style={{ width: 200, height: 400 }} sx={{ maxWidth: 345 }}>
-                <CardActionArea>
-                    <CardMedia
-                        sx={{ height: 200 }}
-                        image={PicBagCover}
-                        title="green iguana"
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h4" component="div">
-                            Bag
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            Demon slayer bag from Skechers
-                        </Typography>
-                        <Grid container>
-                            <Grid item xs={8}>
-                                <h3 style={{ color: "#0079FF" }}>Buy now</h3>
-                            </Grid>
-                            <Grid item xs={4}>
-                                <h3 style={{ color: "#0079FF", textAlign: 'center' }}>฿{price}</h3>
-                            </Grid>
-                        </Grid>
-                        <Box
-                            sx={{
-                                '& > legend': { mt: 2 },
-                            }}
-                        >
-                            <Rating name="read-only" value={value} readOnly />
-                        </Box>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
+            <Grid container spacing={2}>
+                <Grid xs={12} sm={6} md={3}>
+                    <div style={{ paddingTop: 20, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        {<ItemBag />}
+                    </div>
+                </Grid>
+                <Grid xs={12} sm={6} md={3}>
+                    <div style={{ paddingTop: 20, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        {<ItemSneaker />}
+                    </div>
+                </Grid>
+                <Grid xs={12} sm={6} md={3}>
+                    <div style={{ paddingTop: 20, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        {<ItemStandy />}
+                    </div>
+                </Grid>
+                <Grid xs={12} sm={6} md={3}>
+                    <div style={{ paddingTop: 20, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        {<ItemTshirt />}
+                    </div>
+                </Grid>
+            </Grid>
         </>
-    );
+    )
 }
+
+export default BestSeller;

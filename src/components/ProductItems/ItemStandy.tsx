@@ -2,11 +2,13 @@ import {
     Card, CardContent, CardMedia, Rating,
     Typography, CardActionArea, Grid, Box
 } from '@mui/material';
-import PicCoverStandy from '../../Pictures/Standy/PicCoverStandy.jpeg'
+import PicCoverStandy from '../../Pictures/Standy/PicStandyCover.jpeg'
 
 export default function itemStandy() {
     const value = 5;
     const price = 120;
+    const formattedPrice = price.toLocaleString(); 
+
     return (
         <>
             <Card style={{ width: 200, height: 400 }} sx={{ maxWidth: 345 }}>
@@ -28,7 +30,7 @@ export default function itemStandy() {
                                 <h3 style={{ color: "#0079FF" }}>Buy now</h3>
                             </Grid>
                             <Grid item xs={4}>
-                                <h3 style={{ color: "#0079FF", textAlign: 'center' }}>฿{price}</h3>
+                                <h3 style={{ color: "#0079FF", textAlign: 'center' }}>฿{formattedPrice}</h3>
                             </Grid>
                         </Grid>
                         <Box
