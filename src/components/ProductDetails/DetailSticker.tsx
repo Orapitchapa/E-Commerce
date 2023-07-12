@@ -15,21 +15,31 @@ import {
 } from '@mui/material';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import PicBagBlack from '../../Pictures/Bag/PicBagBlack.jpeg';
-import PicBagWhite from '../../Pictures/Bag/PicBagWhite.jpeg';
+import PicStickerTanjiro from '../../Pictures/Sticker/PicStickerTanjiro.jpeg';
+import PicStickerNezuko from '../../Pictures/Sticker/PicStickerNezuko.jpeg';
+import PicStickerZenitsu from '../../Pictures/Sticker/PicStickerZenitsu.jpeg';
+import PicStickerInosuke from '../../Pictures/Sticker/PicStickerInosuke.jpeg';
 
 const images = [
     {
-        label: 'Black',
-        imgPath: PicBagBlack,
+        label: 'Tanjiro',
+        imgPath: PicStickerTanjiro,
     },
     {
-        label: 'White',
-        imgPath: PicBagWhite,
+        label: 'Nezuko',
+        imgPath: PicStickerNezuko,
+    },
+    {
+        label: 'Zenitsu',
+        imgPath: PicStickerZenitsu,
+    },
+    {
+        label: 'Inosuke',
+        imgPath: PicStickerInosuke,
     },
 ];
 
-const DetailBag = () => {
+const DetailSticker = () => {
     const [activeStep, setActiveStep] = React.useState(0);
     const [alignment, setAlignment] = React.useState('');
     const [count, setCount] = React.useState(0);
@@ -46,12 +56,20 @@ const DetailBag = () => {
         setAlignment(newAlignment);
 
         switch (newAlignment) {
-            case 'Black':
-                setStock(stockBL);
+            case 'Tanjiro':
+                setStock(stockTanjiro);
                 setCount(0);
                 break;
-            case 'White':
-                setStock(stockWH);
+            case 'Nezuko':
+                setStock(stockNezuko);
+                setCount(0);
+                break;
+            case 'Zenitsu':
+                setStock(stockZenitsu);
+                setCount(0);
+                break;
+            case 'Inosuke':
+                setStock(stockInosuke);
                 setCount(0);
                 break;
             default:
@@ -59,8 +77,6 @@ const DetailBag = () => {
                 break;
         }
     };
-
-
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -88,8 +104,10 @@ const DetailBag = () => {
     padding-right: 16px;
     `;
 
-    const stockBL = 20;
-    const stockWH = 30;
+    const stockTanjiro = 11;
+    const stockNezuko = 14;
+    const stockZenitsu = 19;
+    const stockInosuke = 13;
 
     return (
         <>
@@ -146,14 +164,14 @@ const DetailBag = () => {
                     </Grid>
                     <Grid xs={12} sm={6} md={6} sx={{ paddingLeft: 8 }}>
                         <div>
-                            <h1>Bag</h1>
-                            <p>Demon slayer bag from Skechers</p>
+                            <h1>Sticker</h1>
+                            <p>Demon slayer Sticker from BIGONE</p>
                             <br />
                             <h3>Specification :</h3>
                             <div>
-                                <p>Dimension: 180X130 mm</p>
-                                <p>Weight: 380 g</p>
-                                <p>Brand: Skechers</p>
+                                <p>Dimension: 105X40 cm</p>
+                                <p>Weight: 1 g</p>
+                                <p>Brand: BIGONE</p>
                             </div>
                             <br />
                             <h3>Variation :</h3>
@@ -198,4 +216,4 @@ const DetailBag = () => {
     );
 };
 
-export default DetailBag;
+export default DetailSticker;

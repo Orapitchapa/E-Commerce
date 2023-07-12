@@ -15,21 +15,21 @@ import {
 } from '@mui/material';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import PicBagBlack from '../../Pictures/Bag/PicBagBlack.jpeg';
-import PicBagWhite from '../../Pictures/Bag/PicBagWhite.jpeg';
+import PicTshirtBlack from '../../Pictures/Tshirt/PicTshirtBlack.jpeg';
+import PicTshirtPink from '../../Pictures/Tshirt/PicTshirtPink.jpeg';
 
 const images = [
     {
         label: 'Black',
-        imgPath: PicBagBlack,
+        imgPath: PicTshirtBlack,
     },
     {
-        label: 'White',
-        imgPath: PicBagWhite,
+        label: 'Pink',
+        imgPath: PicTshirtPink,
     },
 ];
 
-const DetailBag = () => {
+const DetailTshirt = () => {
     const [activeStep, setActiveStep] = React.useState(0);
     const [alignment, setAlignment] = React.useState('');
     const [count, setCount] = React.useState(0);
@@ -50,8 +50,8 @@ const DetailBag = () => {
                 setStock(stockBL);
                 setCount(0);
                 break;
-            case 'White':
-                setStock(stockWH);
+            case 'Pink':
+                setStock(stockPI);
                 setCount(0);
                 break;
             default:
@@ -88,8 +88,8 @@ const DetailBag = () => {
     padding-right: 16px;
     `;
 
-    const stockBL = 20;
-    const stockWH = 30;
+    const stockBL = 14;
+    const stockPI = 9;
 
     return (
         <>
@@ -146,13 +146,13 @@ const DetailBag = () => {
                     </Grid>
                     <Grid xs={12} sm={6} md={6} sx={{ paddingLeft: 8 }}>
                         <div>
-                            <h1>Bag</h1>
-                            <p>Demon slayer bag from Skechers</p>
+                            <h1>Tshirt</h1>
+                            <p>Demon slayer Tshirt from Skechers</p>
                             <br />
                             <h3>Specification :</h3>
                             <div>
-                                <p>Dimension: 180X130 mm</p>
-                                <p>Weight: 380 g</p>
+                                <p>Size: M</p>
+                                <p>Weight: 220 g</p>
                                 <p>Brand: Skechers</p>
                             </div>
                             <br />
@@ -198,4 +198,4 @@ const DetailBag = () => {
     );
 };
 
-export default DetailBag;
+export default DetailTshirt;

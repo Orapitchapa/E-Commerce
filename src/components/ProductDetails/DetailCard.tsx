@@ -15,21 +15,31 @@ import {
 } from '@mui/material';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import PicBagBlack from '../../Pictures/Bag/PicBagBlack.jpeg';
-import PicBagWhite from '../../Pictures/Bag/PicBagWhite.jpeg';
+import PicCard01 from '../../Pictures/Card/PicCard01.jpeg';
+import PicCard02 from '../../Pictures/Card/PicCard02.jpeg';
+import PicCard03 from '../../Pictures/Card/PicCard03.jpeg';
+import PicCard04 from '../../Pictures/Card/PicCard04.jpeg';
 
 const images = [
     {
-        label: 'Black',
-        imgPath: PicBagBlack,
+        label: '001',
+        imgPath: PicCard01,
     },
     {
-        label: 'White',
-        imgPath: PicBagWhite,
+        label: '002',
+        imgPath: PicCard02,
+    },
+    {
+        label: '003',
+        imgPath: PicCard03,
+    },
+    {
+        label: '004',
+        imgPath: PicCard04,
     },
 ];
 
-const DetailBag = () => {
+const DetailCard = () => {
     const [activeStep, setActiveStep] = React.useState(0);
     const [alignment, setAlignment] = React.useState('');
     const [count, setCount] = React.useState(0);
@@ -46,12 +56,20 @@ const DetailBag = () => {
         setAlignment(newAlignment);
 
         switch (newAlignment) {
-            case 'Black':
-                setStock(stockBL);
+            case '001':
+                setStock(stock01);
                 setCount(0);
                 break;
-            case 'White':
-                setStock(stockWH);
+            case '002':
+                setStock(stock02);
+                setCount(0);
+                break;
+            case '003':
+                setStock(stock03);
+                setCount(0);
+                break;
+            case '004':
+                setStock(stock04);
                 setCount(0);
                 break;
             default:
@@ -59,8 +77,6 @@ const DetailBag = () => {
                 break;
         }
     };
-
-
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -88,8 +104,10 @@ const DetailBag = () => {
     padding-right: 16px;
     `;
 
-    const stockBL = 20;
-    const stockWH = 30;
+    const stock01 = 10;
+    const stock02 = 12;
+    const stock03 = 15;
+    const stock04 = 19;
 
     return (
         <>
@@ -146,14 +164,14 @@ const DetailBag = () => {
                     </Grid>
                     <Grid xs={12} sm={6} md={6} sx={{ paddingLeft: 8 }}>
                         <div>
-                            <h1>Bag</h1>
-                            <p>Demon slayer bag from Skechers</p>
+                            <h1>Card</h1>
+                            <p>Demon slayer card from BIGGA</p>
                             <br />
                             <h3>Specification :</h3>
                             <div>
-                                <p>Dimension: 180X130 mm</p>
-                                <p>Weight: 380 g</p>
-                                <p>Brand: Skechers</p>
+                                <p>Dimension: 85X55 mm</p>
+                                <p>Weight: 1 g</p>
+                                <p>Brand: BIGGA</p>
                             </div>
                             <br />
                             <h3>Variation :</h3>
@@ -198,4 +216,4 @@ const DetailBag = () => {
     );
 };
 
-export default DetailBag;
+export default DetailCard;

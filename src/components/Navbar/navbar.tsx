@@ -15,7 +15,7 @@ import Badge, { BadgeProps } from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Logo from '../../Pictures/Logo.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 
 const pages = ['Home', 'Products', 'Promotions', 'Contact'];
@@ -95,12 +95,12 @@ function ResponsiveAppBar() {
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
-                            <NavLink 
-                            to={page === 'Home'? '/':page}>
+                            <NavLink
+                                to={page === 'Home' ? '/' : page}>
                                 <Button
                                     key={page}
                                     onClick={handleCloseNavMenu}
-                                    sx={{ my: 2, color: '#0A6EBD', display: 'block', fontWeight:'bold' }}
+                                    sx={{ my: 2, color: '#0A6EBD', display: 'block', fontWeight: 'bold' }}
                                 >
                                     {page}
                                 </Button>
@@ -110,11 +110,13 @@ function ResponsiveAppBar() {
                     </Box>
 
                     <Box sx={{ flexGrow: 0, paddingRight: 2 }}>
-                        <IconButton aria-label="cart">
-                            <StyledBadge badgeContent={4} color="error">
-                                <ShoppingCartIcon />
-                            </StyledBadge>
-                        </IconButton>
+                        <Link to="../Cart/Ccart">
+                            <IconButton aria-label="cart">
+                                <StyledBadge badgeContent={4} color="error">
+                                    <ShoppingCartIcon />
+                                </StyledBadge>
+                            </IconButton>
+                        </Link>
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>

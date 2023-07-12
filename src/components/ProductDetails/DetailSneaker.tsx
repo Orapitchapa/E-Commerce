@@ -15,21 +15,31 @@ import {
 } from '@mui/material';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import PicBagBlack from '../../Pictures/Bag/PicBagBlack.jpeg';
-import PicBagWhite from '../../Pictures/Bag/PicBagWhite.jpeg';
+import PicSneakerTanjiro from '../../Pictures/Sneaker/PicSneakerTanjiro.jpeg';
+import PicSneakerNezuko from '../../Pictures/Sneaker/PicSneakerNezuko.jpeg';
+import PicSneakerZenitsu from '../../Pictures/Sneaker/PicSneakerZenitsu.jpeg';
+import PicSneakerInosuke from '../../Pictures/Sneaker/PicSneakerInosuke.jpeg';
 
 const images = [
     {
-        label: 'Black',
-        imgPath: PicBagBlack,
+        label: 'Tanjiro',
+        imgPath: PicSneakerTanjiro,
     },
     {
-        label: 'White',
-        imgPath: PicBagWhite,
+        label: 'Nezuko',
+        imgPath: PicSneakerNezuko,
+    },
+    {
+        label: 'Zenitsu',
+        imgPath: PicSneakerZenitsu,
+    },
+    {
+        label: 'Inosuke',
+        imgPath: PicSneakerInosuke,
     },
 ];
 
-const DetailBag = () => {
+const DetailSneaker = () => {
     const [activeStep, setActiveStep] = React.useState(0);
     const [alignment, setAlignment] = React.useState('');
     const [count, setCount] = React.useState(0);
@@ -46,12 +56,20 @@ const DetailBag = () => {
         setAlignment(newAlignment);
 
         switch (newAlignment) {
-            case 'Black':
-                setStock(stockBL);
+            case 'Tanjiro':
+                setStock(stockTanjiro);
                 setCount(0);
                 break;
-            case 'White':
-                setStock(stockWH);
+            case 'Nezuko':
+                setStock(stockNezuko);
+                setCount(0);
+                break;
+            case 'Zenitsu':
+                setStock(stockZenitsu);
+                setCount(0);
+                break;
+            case 'Inosuke':
+                setStock(stockInosuke);
                 setCount(0);
                 break;
             default:
@@ -59,8 +77,6 @@ const DetailBag = () => {
                 break;
         }
     };
-
-
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -88,8 +104,10 @@ const DetailBag = () => {
     padding-right: 16px;
     `;
 
-    const stockBL = 20;
-    const stockWH = 30;
+    const stockTanjiro = 8;
+    const stockNezuko = 10;
+    const stockZenitsu = 6;
+    const stockInosuke = 16;
 
     return (
         <>
@@ -146,13 +164,13 @@ const DetailBag = () => {
                     </Grid>
                     <Grid xs={12} sm={6} md={6} sx={{ paddingLeft: 8 }}>
                         <div>
-                            <h1>Bag</h1>
-                            <p>Demon slayer bag from Skechers</p>
+                            <h1>Sneaker</h1>
+                            <p>Demon slayer sneaker from Skechers</p>
                             <br />
                             <h3>Specification :</h3>
                             <div>
-                                <p>Dimension: 180X130 mm</p>
-                                <p>Weight: 380 g</p>
+                                <p>Size: 7 US</p>
+                                <p>Weight: 560 g</p>
                                 <p>Brand: Skechers</p>
                             </div>
                             <br />
@@ -198,4 +216,4 @@ const DetailBag = () => {
     );
 };
 
-export default DetailBag;
+export default DetailSneaker;

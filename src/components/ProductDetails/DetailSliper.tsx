@@ -15,21 +15,31 @@ import {
 } from '@mui/material';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import PicBagBlack from '../../Pictures/Bag/PicBagBlack.jpeg';
-import PicBagWhite from '../../Pictures/Bag/PicBagWhite.jpeg';
+import PicSliperBlack from '../../Pictures/Sliper/PicSliperBlack.jpeg';
+import PicSliperWhite from '../../Pictures/Sliper/PicSliperWhite.jpeg';
+import PicSliperPink from '../../Pictures/Sliper/PicSliperPink.jpeg';
+import PicSliperGreen from '../../Pictures/Sliper/PicSliperGreen.jpeg';
 
 const images = [
     {
         label: 'Black',
-        imgPath: PicBagBlack,
+        imgPath: PicSliperBlack,
     },
     {
         label: 'White',
-        imgPath: PicBagWhite,
+        imgPath: PicSliperWhite,
+    },
+    {
+        label: 'Pink',
+        imgPath: PicSliperPink,
+    },
+    {
+        label: 'Green',
+        imgPath: PicSliperGreen,
     },
 ];
 
-const DetailBag = () => {
+const DetailSliper = () => {
     const [activeStep, setActiveStep] = React.useState(0);
     const [alignment, setAlignment] = React.useState('');
     const [count, setCount] = React.useState(0);
@@ -47,11 +57,19 @@ const DetailBag = () => {
 
         switch (newAlignment) {
             case 'Black':
-                setStock(stockBL);
+                setStock(stockBlack);
                 setCount(0);
                 break;
             case 'White':
-                setStock(stockWH);
+                setStock(stockWhite);
+                setCount(0);
+                break;
+            case 'Pink':
+                setStock(stockPink);
+                setCount(0);
+                break;
+            case 'Green':
+                setStock(stockGreen);
                 setCount(0);
                 break;
             default:
@@ -59,8 +77,6 @@ const DetailBag = () => {
                 break;
         }
     };
-
-
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -88,8 +104,10 @@ const DetailBag = () => {
     padding-right: 16px;
     `;
 
-    const stockBL = 20;
-    const stockWH = 30;
+    const stockBlack = 4;
+    const stockWhite = 8;
+    const stockPink = 5;
+    const stockGreen = 7;
 
     return (
         <>
@@ -146,13 +164,13 @@ const DetailBag = () => {
                     </Grid>
                     <Grid xs={12} sm={6} md={6} sx={{ paddingLeft: 8 }}>
                         <div>
-                            <h1>Bag</h1>
-                            <p>Demon slayer bag from Skechers</p>
+                            <h1>Sliper</h1>
+                            <p>Demon slayer sliper from Skechers</p>
                             <br />
                             <h3>Specification :</h3>
                             <div>
-                                <p>Dimension: 180X130 mm</p>
-                                <p>Weight: 380 g</p>
+                                <p>Size : 7 US</p>
+                                <p>Weight: 250 g</p>
                                 <p>Brand: Skechers</p>
                             </div>
                             <br />
@@ -198,4 +216,4 @@ const DetailBag = () => {
     );
 };
 
-export default DetailBag;
+export default DetailSliper;
