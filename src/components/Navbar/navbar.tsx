@@ -110,7 +110,7 @@ function ResponsiveAppBar() {
                     </Box>
 
                     <Box sx={{ flexGrow: 0, paddingRight: 2 }}>
-                        <Link to="../Cart/Ccart">
+                        <Link to="../Cart/DetailCart">
                             <IconButton aria-label="cart">
                                 <StyledBadge badgeContent={4} color="error">
                                     <ShoppingCartIcon />

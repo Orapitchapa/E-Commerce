@@ -15,35 +15,24 @@ import {
 } from '@mui/material';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import PicCard01 from '../../Pictures/Card/PicCard01.jpeg';
-import PicCard02 from '../../Pictures/Card/PicCard02.jpeg';
-import PicCard03 from '../../Pictures/Card/PicCard03.jpeg';
-import PicCard04 from '../../Pictures/Card/PicCard04.jpeg';
+import productDetailJson from "../../components/ProductDetails/ProductDetail.json"
 
-const images = [
-    {
-        label: '001',
-        imgPath: PicCard01,
-    },
-    {
-        label: '002',
-        imgPath: PicCard02,
-    },
-    {
-        label: '003',
-        imgPath: PicCard03,
-    },
-    {
-        label: '004',
-        imgPath: PicCard04,
-    },
-];
+const productData = productDetailJson[1];
+const productName = productData.name;
+const productDescription = productData.description;
+const productSpecification = productData.specification;
+const productVariations = productData.variation;
+const images = productVariations.map(variation => ({
+    label: variation.label,
+    imgPath: variation.pic,
+}));
 
 const DetailCard = () => {
     const [activeStep, setActiveStep] = React.useState(0);
     const [alignment, setAlignment] = React.useState('');
     const [count, setCount] = React.useState(0);
     const [stock, setStock] = React.useState(0);
+    const [selectedPrice, setSelectedPrice] = React.useState(0);
     const theme = useTheme();
     const maxSteps = images.length;
 
@@ -57,20 +46,24 @@ const DetailCard = () => {
 
         switch (newAlignment) {
             case '001':
-                setStock(stock01);
+                setStock(stock001);
                 setCount(0);
+                setSelectedPrice(price001);
                 break;
             case '002':
-                setStock(stock02);
+                setStock(stock002);
                 setCount(0);
+                setSelectedPrice(price002);
                 break;
             case '003':
-                setStock(stock03);
+                setStock(stock003);
                 setCount(0);
+                setSelectedPrice(price003);
                 break;
             case '004':
-                setStock(stock04);
+                setStock(stock004);
                 setCount(0);
+                setSelectedPrice(price004);
                 break;
             default:
                 setStock(0);
@@ -104,10 +97,18 @@ const DetailCard = () => {
     padding-right: 16px;
     `;
 
-    const stock01 = 10;
-    const stock02 = 12;
-    const stock03 = 15;
-    const stock04 = 19;
+    const stock001 = productVariations.find(variation => variation.label === '001')?.stock || 0;
+    const stock002 = productVariations.find(variation => variation.label === '002')?.stock || 0;
+    const stock003 = productVariations.find(variation => variation.label === '003')?.stock || 0;
+    const stock004 = productVariations.find(variation => variation.label === '004')?.stock || 0;
+
+    const price001 = productVariations.find(variation => variation.label === '001')?.price || 0;
+    const price002 = productVariations.find(variation => variation.label === '002')?.price || 0;
+    const price003 = productVariations.find(variation => variation.label === '003')?.price || 0;
+    const price004 = productVariations.find(variation => variation.label === '004')?.price || 0;
+
+    const totalCost = count * selectedPrice;
+    const formattedTotalCost = totalCost.toLocaleString();
 
     return (
         <>
@@ -164,14 +165,14 @@ const DetailCard = () => {
                     </Grid>
                     <Grid xs={12} sm={6} md={6} sx={{ paddingLeft: 8 }}>
                         <div>
-                            <h1>Card</h1>
-                            <p>Demon slayer card from BIGGA</p>
+                        <h1>{productName}</h1>
+                            <p>{productDescription}</p>
                             <br />
                             <h3>Specification :</h3>
                             <div>
-                                <p>Dimension: 85X55 mm</p>
-                                <p>Weight: 1 g</p>
-                                <p>Brand: BIGGA</p>
+                                <p>Dimension: {productSpecification.dimension}</p>
+                                <p>Weight: {productSpecification.weight}</p>
+                                <p>Brand: {productSpecification.brand}</p>
                             </div>
                             <br />
                             <h3>Variation :</h3>
@@ -192,17 +193,25 @@ const DetailCard = () => {
                             </Stack>
                             <br />
                             <Grid container>
-                                <Grid md={4}>
-                                    <ButtonGroup variant="outlined" aria-label="outlined button group">
-                                        <Button onClick={handleDecrement}>-</Button>
-                                        <Button>{count}</Button>
-                                        <Button onClick={handleIncrement}>+</Button>
-                                    </ButtonGroup>
+                                <Grid md={2}>
+                                    <p>Quantity:</p>
                                 </Grid>
-                                <Grid md={6}>
+                                <Grid md={4}>
+                                    <div style={{ display: 'flex', justifyContent: 'center',paddingTop:8 }}>
+                                        <ButtonGroup variant="outlined" aria-label="outlined button group">
+                                            <Button onClick={handleDecrement}>-</Button>
+                                            <Button>{count}</Button>
+                                            <Button onClick={handleIncrement}>+</Button>
+                                        </ButtonGroup>
+                                    </div>
+                                </Grid>
+                                <Grid md={5}>
                                     <p>{stock} pieces available</p>
                                 </Grid>
                             </Grid>
+                            <div>
+                                <h3 style={{ color: theme.palette.primary.main }}>Price: {formattedTotalCost} ฿</h3>
+                            </div>
                             <div>
                                 <AddToCartButton variant="contained" color="primary">
                                     Add to cart

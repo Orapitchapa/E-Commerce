@@ -1,0 +1,270 @@
+[
+    {
+        "id" : 1,
+        "name" : "Bag",
+        "description" : "Demon slayer Bag from Skechers",
+        "specification" : {
+            "dimension" : "180X130 mm",
+            "weight" : "380 g",
+            "brand" : "Skechers"
+        },
+        "variation" :[
+            {
+                "label" : "Black",
+                "price" : 1090,
+                "stock" : 10,
+                "pic" : "/src/Pictures/Bag/PicBagBlack.jpeg"
+            },
+            {
+                "label" : "White",
+                "price" : 1090,
+                "stock" : 15,
+                "pic" : "/src/Pictures/Bag/PicBagWhite.jpeg"
+            }
+        ]
+        
+    },
+    {
+        "id" : 2,
+        "name" : "Card",
+        "description" : "Demon slayer Card from BIGGA",
+        "specification" : {
+            "dimension" : "85X55 mm",
+            "weight" : "1 g",
+            "brand" : "BIGGA"
+        },
+        "variation" :[
+            {
+                "label" : "001",
+                "price" : 500,
+                "stock" : 6,
+                "pic" : "/src/Pictures/Card/PicCard01.jpeg"
+            },
+            {
+                "label" : "002",
+                "price" : 400,
+                "stock" : 9,
+                "pic" : "/src/Pictures/Card/PicCard02.jpeg"
+            },
+            {
+                "label" : "003",
+                "price" : 300,
+                "stock" : 9,
+                "pic" : "/src/Pictures/Card/PicCard03.jpeg"
+            },
+            {
+                "label" : "004",
+                "price" : 100,
+                "stock" : 12,
+                "pic" : "/src/Pictures/Card/PicCard04.jpeg"
+            }
+        ]
+        
+    },
+    {
+        "id" : 3,
+        "name" : "Magnet",
+        "description" : "Demon slayer Magnet from BIGGA",
+        "specification" : {
+            "dimension" : "4X4 mm",
+            "weight" : "7 g",
+            "brand" : "BIGGA"
+        },
+        "variation" :[
+            {
+                "label" : "Tanjiro",
+                "price" : 80,
+                "stock" : 6,
+                "pic" : "/src/Pictures/Magnet/PicMagnetTanjiro.jpeg"
+            },
+            {
+                "label" : "Nezuko",
+                "price" : 80,
+                "stock" : 14,
+                "pic" : "/src/Pictures/Magnet/PicMagnetNezuko.jpeg"
+            },
+            {
+                "label" : "Zenitsu",
+                "price" : 80,
+                "stock" : 10,
+                "pic" : "/src/Pictures/Magnet/PicMagnetZenitsu.jpeg"
+            },
+            {
+                "label" : "Inosuke",
+                "price" : 80,
+                "stock" : 15,
+                "pic" : "/src/Pictures/Magnet/PicMagnetInosuke.jpeg"
+            }
+        ]
+        
+    },
+    {
+        "id" : 4,
+        "name" : "Sliper",
+        "description" : "Demon slayer Sliper from Skechers",
+        "specification" : {
+            "size" : "7 US",
+            "weight" : "250 g",
+            "brand" : "Skechers"
+        },
+        "variation" :[
+            {
+                "label" : "Black",
+                "price" : 80,
+                "stock" : 2,
+                "pic" : "/src/Pictures/Sliper/PicSliperBlack.jpeg"
+            },
+            {
+                "label" : "White",
+                "price" : 80,
+                "stock" : 4,
+                "pic" : "/src/Pictures/Sliper/PicSliperWhite.jpeg"
+            },
+            {
+                "label" : "Pink",
+                "price" : 80,
+                "stock" : 3,
+                "pic" : "/src/Pictures/Sliper/PicSliperPink.jpeg"
+            },
+            {
+                "label" : "Green",
+                "price" : 80,
+                "stock" : 5,
+                "pic" : "/src/Pictures/Sliper/PicSliperGreen.jpeg"
+            }
+        ]
+        
+    },
+    {
+        "id" : 5,
+        "name" : "Sneaker",
+        "description" : "Demon slayer Sneaker from Skechers",
+        "specification" : {
+            "size" : "7 US",
+            "weight" : "560 g",
+            "brand" : "Skechers"
+        },
+        "variation" :[
+            {
+                "label" : "Tanjiro",
+                "price" : 3400,
+                "stock" : 3,
+                "pic" : "/src/Pictures/Sneaker/PicSneakerTanjiro.jpeg"
+            },
+            {
+                "label" : "Nezuko",
+                "price" : 3400,
+                "stock" : 1,
+                "pic" : "/src/Pictures/Sneaker/PicSneakerNezuko.jpeg"
+            },
+            {
+                "label" : "Zenitsu",
+                "price" : 3400,
+                "stock" : 2,
+                "pic" : "/src/Pictures/Sneaker/PicSneakerZenitsu.jpeg"
+            },
+            {
+                "label" : "Inosuke",
+                "price" : 3400,
+                "stock" : 3,
+                "pic" : "/src/Pictures/Sneaker/PicSneakerInosuke.jpeg"
+            }
+        ]
+    },
+    {
+        "id" : 6,
+        "name" : "Standy",
+        "description" : "Demon slayer Standy from BIGGA",
+        "specification" : {
+            "dimension" : "90X60 mm",
+            "weight" : "5 g",
+            "brand" : "BIGGA"
+        },
+        "variation" :[
+            {
+                "label" : "Tanjiro",
+                "price" : 120,
+                "stock" : 11,
+                "pic" : "/src/Pictures/Standy/PicStandyTanjiro.jpeg"
+            },
+            {
+                "label" : "Nezuko",
+                "price" : 120,
+                "stock" : 13,
+                "pic" : "/src/Pictures/Standy/PicStandyNezuko.jpeg"
+            },
+            {
+                "label" : "Zenitsu",
+                "price" : 120,
+                "stock" : 8,
+                "pic" : "/src/Pictures/Standy/PicStandyZenitsu.jpeg"
+            },
+            {
+                "label" : "Inosuke",
+                "price" : 120,
+                "stock" : 9,
+                "pic" : "/src/Pictures/Standy/PicStandyInosuke.jpeg"
+            }
+        ]
+    },
+    {
+        "id" : 7,
+        "name" : "Sticker",
+        "description" : "Demon slayer Sticker from BIGONE",
+        "specification" : {
+            "dimension" : "105X40 mm",
+            "weight" : "1 g",
+            "brand" : "BIGONE"
+        },
+        "variation" :[
+            {
+                "label" : "Tanjiro",
+                "price" : 120,
+                "stock" : 9,
+                "pic" : "/src/Pictures/Sticker/PicStickerTanjiro.jpeg"
+            },
+            {
+                "label" : "Nezuko",
+                "price" : 120,
+                "stock" : 8,
+                "pic" : "/src/Pictures/Sticker/PicStickerNezuko.jpeg"
+            },
+            {
+                "label" : "Zenitsu",
+                "price" : 120,
+                "stock" : 10,
+                "pic" : "/src/Pictures/Sticker/PicStickerZenitsu.jpeg"
+            },
+            {
+                "label" : "Inosuke",
+                "price" : 120,
+                "stock" : 6,
+                "pic" : "/src/Pictures/Sticker/PicStickerInosuke.jpeg"
+            }
+        ]
+    },
+    {
+        "id" : 8,
+        "name" : "Tshirt",
+        "description" : "Demon slayer Tshirt from Skechers",
+        "specification" : {
+            "dimension" : "105X40 mm",
+            "weight" : "1 g",
+            "brand" : "Skechers"
+        },
+        "variation" :[
+            {
+                "label" : "Black",
+                "price" : 1299,
+                "stock" : 5,
+                "pic" : "/src/Pictures/Tshirt/PicTshirtBlack.jpeg"
+            },
+            {
+                "label" : "Pink",
+                "price" : 1299,
+                "stock" : 4,
+                "pic" : "/src/Pictures/Tshirt/PicTshirtPink.jpeg"
+            }
+        ]
+    }
+]

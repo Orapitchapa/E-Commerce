@@ -13,7 +13,7 @@ import DetailSneaker from './components/ProductDetails/DetailSneaker'
 import DetailStandy from './components/ProductDetails/DetailStandy'
 import DetailSticker from './components/ProductDetails/DetailSticker'
 import DetailTshirt from './components/ProductDetails/DetailTshirt'
-import Ccart from './components/Cart/Ccart'
+import DetailCart from './components/Cart/DetailCart'
 
 const App = () => {
 
@@ -25,7 +25,7 @@ const App = () => {
         <Route path="/Products" element={<Products />} />
         <Route path="/Promotions" element={<Promotions />} />
         <Route path="/Contact" element={<Contact />} />
-        <Route path="/Cart/Ccart" element={<Ccart />} />
+        <Route path="/Cart/DetailCart" element={<DetailCart />} />
         <Route path="/ProductDetails/DetailBag" element={<DetailBag />} />
         <Route path="/ProductDetails/DetailCard" element={<DetailCard />} />
         <Route path="/ProductDetails/DetailMagnet" element={<DetailMagnet />} />
