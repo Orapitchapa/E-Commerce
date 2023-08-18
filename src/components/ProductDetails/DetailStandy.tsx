@@ -15,35 +15,24 @@ import {
 } from '@mui/material';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import PicStandyTanjiro from '../../Pictures/Standy/PicStandyTanjiro.jpeg';
-import PicStandyNezuko from '../../Pictures/Standy/PicStandyNezuko.jpeg';
-import PicStandyZenitsu from '../../Pictures/Standy/PicStandyZenitsu.jpeg';
-import PicStandyInosuke from '../../Pictures/Standy/PicStandyInosuke.jpeg';
+import productDetailJson from "../../components/ProductDetails/ProductDetail.json";
 
-const images = [
-    {
-        label: 'Tanjiro',
-        imgPath: PicStandyTanjiro,
-    },
-    {
-        label: 'Nezuko',
-        imgPath: PicStandyNezuko,
-    },
-    {
-        label: 'Zenitsu',
-        imgPath: PicStandyZenitsu,
-    },
-    {
-        label: 'Inosuke',
-        imgPath: PicStandyInosuke,
-    },
-];
+const productData = productDetailJson[5];
+const productName = productData.name;
+const productDescription = productData.description;
+const productSpecification = productData.specification;
+const productVariations = productData.variation;
+const images = productVariations.map(variation => ({
+    label: variation.label,
+    imgPath: variation.pic,
+}));
 
 const DetailStandy = () => {
     const [activeStep, setActiveStep] = React.useState(0);
     const [alignment, setAlignment] = React.useState('');
     const [count, setCount] = React.useState(0);
     const [stock, setStock] = React.useState(0);
+    const [selectedPrice, setSelectedPrice] = React.useState(0);
     const theme = useTheme();
     const maxSteps = images.length;
 
@@ -57,20 +46,24 @@ const DetailStandy = () => {
 
         switch (newAlignment) {
             case 'Tanjiro':
-                setStock(stockTanjiro);
+                setStock(stockTan);
                 setCount(0);
+                setSelectedPrice(priceTan);
                 break;
             case 'Nezuko':
-                setStock(stockNezuko);
+                setStock(stockNez);
                 setCount(0);
+                setSelectedPrice(priceNez);
                 break;
             case 'Zenitsu':
-                setStock(stockZenitsu);
+                setStock(stockZen);
                 setCount(0);
+                setSelectedPrice(priceZen);
                 break;
             case 'Inosuke':
-                setStock(stockInosuke);
+                setStock(stockIno);
                 setCount(0);
+                setSelectedPrice(priceIno);
                 break;
             default:
                 setStock(0);
@@ -104,10 +97,18 @@ const DetailStandy = () => {
     padding-right: 16px;
     `;
 
-    const stockTanjiro = 2;
-    const stockNezuko = 4;
-    const stockZenitsu = 9;
-    const stockInosuke = 3;
+    const stockTan = productVariations.find(variation => variation.label === 'Tanjiro')?.stock || 0;
+    const stockNez = productVariations.find(variation => variation.label === 'Nezuko')?.stock || 0;
+    const stockZen = productVariations.find(variation => variation.label === 'Zenitsu')?.stock || 0;
+    const stockIno = productVariations.find(variation => variation.label === 'Inosuke')?.stock || 0;
+
+    const priceTan = productVariations.find(variation => variation.label === 'Tanjiro')?.price || 0;
+    const priceNez = productVariations.find(variation => variation.label === 'Nezuko')?.price || 0;
+    const priceZen = productVariations.find(variation => variation.label === 'Zenitsu')?.price || 0;
+    const priceIno = productVariations.find(variation => variation.label === 'Inosuke')?.price || 0;
+
+    const totalCost = count * selectedPrice;
+    const formattedTotalCost = totalCost.toLocaleString();
 
     return (
         <>
@@ -164,14 +165,14 @@ const DetailStandy = () => {
                     </Grid>
                     <Grid xs={12} sm={6} md={6} sx={{ paddingLeft: 8 }}>
                         <div>
-                            <h1>Standy</h1>
-                            <p>Demon slayer standy from BIGGA</p>
+                            <h1>{productName}</h1>
+                            <p>{productDescription}</p>
                             <br />
                             <h3>Specification :</h3>
                             <div>
-                                <p>Dimension: 90X60 mm</p>
-                                <p>Weight: 5 g</p>
-                                <p>Brand: BIGGA</p>
+                                <p>Size: {productSpecification.size}</p>
+                                <p>Weight: {productSpecification.weight}</p>
+                                <p>Brand: {productSpecification.brand}</p>
                             </div>
                             <br />
                             <h3>Variation :</h3>
@@ -192,17 +193,25 @@ const DetailStandy = () => {
                             </Stack>
                             <br />
                             <Grid container>
-                                <Grid md={4}>
-                                    <ButtonGroup variant="outlined" aria-label="outlined button group">
-                                        <Button onClick={handleDecrement}>-</Button>
-                                        <Button>{count}</Button>
-                                        <Button onClick={handleIncrement}>+</Button>
-                                    </ButtonGroup>
+                                <Grid md={2}>
+                                    <p>Quantity:</p>
                                 </Grid>
-                                <Grid md={6}>
+                                <Grid md={4}>
+                                    <div style={{ display: 'flex', justifyContent: 'center', paddingTop: 8 }}>
+                                        <ButtonGroup variant="outlined" aria-label="outlined button group">
+                                            <Button onClick={handleDecrement}>-</Button>
+                                            <Button>{count}</Button>
+                                            <Button onClick={handleIncrement}>+</Button>
+                                        </ButtonGroup>
+                                    </div>
+                                </Grid>
+                                <Grid md={5}>
                                     <p>{stock} pieces available</p>
                                 </Grid>
                             </Grid>
+                            <div>
+                                <h3 style={{ color: theme.palette.primary.main }}>Price: {formattedTotalCost} ฿</h3>
+                            </div>
                             <div>
                                 <AddToCartButton variant="contained" color="primary">
                                     Add to cart

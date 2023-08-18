@@ -15,25 +15,24 @@ import {
 } from '@mui/material';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import PicTshirtBlack from '../../Pictures/Tshirt/PicTshirtBlack.jpeg';
-import PicTshirtPink from '../../Pictures/Tshirt/PicTshirtPink.jpeg';
+import productDetailJson from "../../components/ProductDetails/ProductDetail.json";
 
-const images = [
-    {
-        label: 'Black',
-        imgPath: PicTshirtBlack,
-    },
-    {
-        label: 'Pink',
-        imgPath: PicTshirtPink,
-    },
-];
+const productData = productDetailJson[7];
+const productName = productData.name;
+const productDescription = productData.description;
+const productSpecification = productData.specification;
+const productVariations = productData.variation;
+const images = productVariations.map(variation => ({
+    label: variation.label,
+    imgPath: variation.pic,
+}));
 
 const DetailTshirt = () => {
     const [activeStep, setActiveStep] = React.useState(0);
     const [alignment, setAlignment] = React.useState('');
     const [count, setCount] = React.useState(0);
     const [stock, setStock] = React.useState(0);
+    const [selectedPrice, setSelectedPrice] = React.useState(0);
     const theme = useTheme();
     const maxSteps = images.length;
 
@@ -49,10 +48,12 @@ const DetailTshirt = () => {
             case 'Black':
                 setStock(stockBL);
                 setCount(0);
+                setSelectedPrice(priceBL);
                 break;
             case 'Pink':
                 setStock(stockPI);
                 setCount(0);
+                setSelectedPrice(pricePI);
                 break;
             default:
                 setStock(0);
@@ -88,8 +89,14 @@ const DetailTshirt = () => {
     padding-right: 16px;
     `;
 
-    const stockBL = 14;
-    const stockPI = 9;
+    const stockBL = productVariations.find(variation => variation.label === 'Black')?.stock || 0;
+    const stockPI = productVariations.find(variation => variation.label === 'Pink')?.stock || 0;
+
+    const priceBL = productVariations.find(variation => variation.label === 'Black')?.price || 0;
+    const pricePI = productVariations.find(variation => variation.label === 'Pink')?.price || 0;
+
+    const totalCost = count * selectedPrice;
+    const formattedTotalCost = totalCost.toLocaleString();
 
     return (
         <>
@@ -146,14 +153,14 @@ const DetailTshirt = () => {
                     </Grid>
                     <Grid xs={12} sm={6} md={6} sx={{ paddingLeft: 8 }}>
                         <div>
-                            <h1>Tshirt</h1>
-                            <p>Demon slayer Tshirt from Skechers</p>
+                            <h1>{productName}</h1>
+                            <p>{productDescription}</p>
                             <br />
                             <h3>Specification :</h3>
                             <div>
-                                <p>Size: M</p>
-                                <p>Weight: 220 g</p>
-                                <p>Brand: Skechers</p>
+                                <p>Size: {productSpecification.size}</p>
+                                <p>Weight: {productSpecification.weight}</p>
+                                <p>Brand: {productSpecification.brand}</p>
                             </div>
                             <br />
                             <h3>Variation :</h3>
@@ -165,26 +172,34 @@ const DetailTshirt = () => {
                                     onChange={handleChange}
                                     aria-label="Platform"
                                 >
-                                    {images.map((image) => (
-                                        <ToggleButton key={image.label} value={image.label}>
-                                            {image.label}
+                                    {productVariations.map((variation) => (
+                                        <ToggleButton key={variation.label} value={variation.label}>
+                                            {variation.label}
                                         </ToggleButton>
                                     ))}
                                 </ToggleButtonGroup>
                             </Stack>
                             <br />
                             <Grid container>
-                                <Grid md={4}>
-                                    <ButtonGroup variant="outlined" aria-label="outlined button group">
-                                        <Button onClick={handleDecrement}>-</Button>
-                                        <Button>{count}</Button>
-                                        <Button onClick={handleIncrement}>+</Button>
-                                    </ButtonGroup>
+                                <Grid md={2}>
+                                    <p>Quantity:</p>
                                 </Grid>
-                                <Grid md={6}>
+                                <Grid md={4}>
+                                    <div style={{ display: 'flex', justifyContent: 'center', paddingTop: 8 }}>
+                                        <ButtonGroup variant="outlined" aria-label="outlined button group">
+                                            <Button onClick={handleDecrement}>-</Button>
+                                            <Button>{count}</Button>
+                                            <Button onClick={handleIncrement}>+</Button>
+                                        </ButtonGroup>
+                                    </div>
+                                </Grid>
+                                <Grid md={5}>
                                     <p>{stock} pieces available</p>
                                 </Grid>
                             </Grid>
+                            <div>
+                                <h3 style={{ color: theme.palette.primary.main }}>Price: {formattedTotalCost} ฿</h3>
+                            </div>
                             <div>
                                 <AddToCartButton variant="contained" color="primary">
                                     Add to cart

@@ -158,7 +158,7 @@ const DetailBag = () => {
                             <br />
                             <h3>Specification :</h3>
                             <div>
-                                <p>Dimension: {productSpecification.dimension}</p>
+                                <p>Size: {productSpecification.size}</p>
                                 <p>Weight: {productSpecification.weight}</p>
                                 <p>Brand: {productSpecification.brand}</p>
                             </div>

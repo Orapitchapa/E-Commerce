@@ -15,35 +15,24 @@ import {
 } from '@mui/material';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import PicSliperBlack from '../../Pictures/Sliper/PicSliperBlack.jpeg';
-import PicSliperWhite from '../../Pictures/Sliper/PicSliperWhite.jpeg';
-import PicSliperPink from '../../Pictures/Sliper/PicSliperPink.jpeg';
-import PicSliperGreen from '../../Pictures/Sliper/PicSliperGreen.jpeg';
+import productDetailJson from "../../components/ProductDetails/ProductDetail.json";
 
-const images = [
-    {
-        label: 'Black',
-        imgPath: PicSliperBlack,
-    },
-    {
-        label: 'White',
-        imgPath: PicSliperWhite,
-    },
-    {
-        label: 'Pink',
-        imgPath: PicSliperPink,
-    },
-    {
-        label: 'Green',
-        imgPath: PicSliperGreen,
-    },
-];
+const productData = productDetailJson[3];
+const productName = productData.name;
+const productDescription = productData.description;
+const productSpecification = productData.specification;
+const productVariations = productData.variation;
+const images = productVariations.map(variation => ({
+    label: variation.label,
+    imgPath: variation.pic,
+}));
 
 const DetailSliper = () => {
     const [activeStep, setActiveStep] = React.useState(0);
     const [alignment, setAlignment] = React.useState('');
     const [count, setCount] = React.useState(0);
     const [stock, setStock] = React.useState(0);
+    const [selectedPrice, setSelectedPrice] = React.useState(0);
     const theme = useTheme();
     const maxSteps = images.length;
 
@@ -57,20 +46,24 @@ const DetailSliper = () => {
 
         switch (newAlignment) {
             case 'Black':
-                setStock(stockBlack);
+                setStock(stockBL);
                 setCount(0);
+                setSelectedPrice(priceBL);
                 break;
             case 'White':
-                setStock(stockWhite);
+                setStock(stockWH);
                 setCount(0);
+                setSelectedPrice(priceWH);
                 break;
             case 'Pink':
-                setStock(stockPink);
+                setStock(stockPI);
                 setCount(0);
+                setSelectedPrice(pricePI);
                 break;
             case 'Green':
-                setStock(stockGreen);
+                setStock(stockGR);
                 setCount(0);
+                setSelectedPrice(priceGR);
                 break;
             default:
                 setStock(0);
@@ -104,10 +97,18 @@ const DetailSliper = () => {
     padding-right: 16px;
     `;
 
-    const stockBlack = 4;
-    const stockWhite = 8;
-    const stockPink = 5;
-    const stockGreen = 7;
+    const stockBL = productVariations.find(variation => variation.label === 'Black')?.stock || 0;
+    const stockWH = productVariations.find(variation => variation.label === 'White')?.stock || 0;
+    const stockPI = productVariations.find(variation => variation.label === 'Pink')?.stock || 0;
+    const stockGR = productVariations.find(variation => variation.label === 'Green')?.stock || 0;
+
+    const priceBL = productVariations.find(variation => variation.label === 'Black')?.price || 0;
+    const priceWH = productVariations.find(variation => variation.label === 'White')?.price || 0;
+    const pricePI = productVariations.find(variation => variation.label === 'Pink')?.price || 0;
+    const priceGR = productVariations.find(variation => variation.label === 'Green')?.price || 0;
+
+    const totalCost = count * selectedPrice;
+    const formattedTotalCost = totalCost.toLocaleString();
 
     return (
         <>
@@ -163,15 +164,15 @@ const DetailSliper = () => {
                         </Box>
                     </Grid>
                     <Grid xs={12} sm={6} md={6} sx={{ paddingLeft: 8 }}>
-                        <div>
-                            <h1>Sliper</h1>
-                            <p>Demon slayer sliper from Skechers</p>
+                    <div>
+                            <h1>{productName}</h1>
+                            <p>{productDescription}</p>
                             <br />
                             <h3>Specification :</h3>
                             <div>
-                                <p>Size : 7 US</p>
-                                <p>Weight: 250 g</p>
-                                <p>Brand: Skechers</p>
+                                <p>Size: {productSpecification.size}</p>
+                                <p>Weight: {productSpecification.weight}</p>
+                                <p>Brand: {productSpecification.brand}</p>
                             </div>
                             <br />
                             <h3>Variation :</h3>
@@ -183,26 +184,34 @@ const DetailSliper = () => {
                                     onChange={handleChange}
                                     aria-label="Platform"
                                 >
-                                    {images.map((image) => (
-                                        <ToggleButton key={image.label} value={image.label}>
-                                            {image.label}
+                                    {productVariations.map((variation) => (
+                                        <ToggleButton key={variation.label} value={variation.label}>
+                                            {variation.label}
                                         </ToggleButton>
                                     ))}
                                 </ToggleButtonGroup>
                             </Stack>
                             <br />
                             <Grid container>
-                                <Grid md={4}>
-                                    <ButtonGroup variant="outlined" aria-label="outlined button group">
-                                        <Button onClick={handleDecrement}>-</Button>
-                                        <Button>{count}</Button>
-                                        <Button onClick={handleIncrement}>+</Button>
-                                    </ButtonGroup>
+                                <Grid md={2}>
+                                    <p>Quantity:</p>
                                 </Grid>
-                                <Grid md={6}>
+                                <Grid md={4}>
+                                    <div style={{ display: 'flex', justifyContent: 'center',paddingTop:8 }}>
+                                        <ButtonGroup variant="outlined" aria-label="outlined button group">
+                                            <Button onClick={handleDecrement}>-</Button>
+                                            <Button>{count}</Button>
+                                            <Button onClick={handleIncrement}>+</Button>
+                                        </ButtonGroup>
+                                    </div>
+                                </Grid>
+                                <Grid md={5}>
                                     <p>{stock} pieces available</p>
                                 </Grid>
                             </Grid>
+                            <div>
+                                <h3 style={{ color: theme.palette.primary.main }}>Price: {formattedTotalCost} ฿</h3>
+                            </div>
                             <div>
                                 <AddToCartButton variant="contained" color="primary">
                                     Add to cart

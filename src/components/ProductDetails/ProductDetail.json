@@ -4,7 +4,7 @@
         "name" : "Bag",
         "description" : "Demon slayer Bag from Skechers",
         "specification" : {
-            "dimension" : "180X130 mm",
+            "size" : "180X130 mm",
             "weight" : "380 g",
             "brand" : "Skechers"
         },
@@ -29,7 +29,7 @@
         "name" : "Card",
         "description" : "Demon slayer Card from BIGGA",
         "specification" : {
-            "dimension" : "85X55 mm",
+            "size" : "85X55 mm",
             "weight" : "1 g",
             "brand" : "BIGGA"
         },
@@ -66,7 +66,7 @@
         "name" : "Magnet",
         "description" : "Demon slayer Magnet from BIGGA",
         "specification" : {
-            "dimension" : "4X4 mm",
+            "size" : "4X4 mm",
             "weight" : "7 g",
             "brand" : "BIGGA"
         },
@@ -110,25 +110,25 @@
         "variation" :[
             {
                 "label" : "Black",
-                "price" : 80,
+                "price" : 1200,
                 "stock" : 2,
                 "pic" : "/src/Pictures/Sliper/PicSliperBlack.jpeg"
             },
             {
                 "label" : "White",
-                "price" : 80,
+                "price" : 1200,
                 "stock" : 4,
                 "pic" : "/src/Pictures/Sliper/PicSliperWhite.jpeg"
             },
             {
                 "label" : "Pink",
-                "price" : 80,
+                "price" : 1200,
                 "stock" : 3,
                 "pic" : "/src/Pictures/Sliper/PicSliperPink.jpeg"
             },
             {
                 "label" : "Green",
-                "price" : 80,
+                "price" : 1200,
                 "stock" : 5,
                 "pic" : "/src/Pictures/Sliper/PicSliperGreen.jpeg"
             }
@@ -176,7 +176,7 @@
         "name" : "Standy",
         "description" : "Demon slayer Standy from BIGGA",
         "specification" : {
-            "dimension" : "90X60 mm",
+            "size" : "90X60 mm",
             "weight" : "5 g",
             "brand" : "BIGGA"
         },
@@ -212,7 +212,7 @@
         "name" : "Sticker",
         "description" : "Demon slayer Sticker from BIGONE",
         "specification" : {
-            "dimension" : "105X40 mm",
+            "size" : "105X40 mm",
             "weight" : "1 g",
             "brand" : "BIGONE"
         },
@@ -248,8 +248,8 @@
         "name" : "Tshirt",
         "description" : "Demon slayer Tshirt from Skechers",
         "specification" : {
-            "dimension" : "105X40 mm",
-            "weight" : "1 g",
+            "size" : "M",
+            "weight" : "100 g",
             "brand" : "Skechers"
         },
         "variation" :[
