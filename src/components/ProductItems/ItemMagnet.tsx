@@ -12,7 +12,7 @@ export default function ItemMagnet() {
 
     return (
         <>
-            <Link to="../ProductDetails/DetailMagnet">
+            <Link to="../ProductDetails/2">
                 <Card style={{ width: 200, height: 400 }} sx={{ maxWidth: 345 }}>
                     <CardActionArea>
                         <CardMedia

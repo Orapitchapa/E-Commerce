@@ -12,7 +12,7 @@ export default function ItemSliper() {
 
     return (
         <>
-            <Link to="../ProductDetails/DetailSliper">
+            <Link to="../ProductDetails/3">
                 <Card style={{ width: 200, height: 400 }} sx={{ maxWidth: 345 }}>
                     <CardActionArea>
                         <CardMedia

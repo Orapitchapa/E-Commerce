@@ -12,7 +12,7 @@ export default function ItemCard() {
 
     return (
         <>
-            <Link to="../ProductDetails/DetailCard">
+            <Link to="../ProductDetails/1">
                 <Card style={{ width: 200, height: 400 }} sx={{ maxWidth: 345 }}>
                     <CardActionArea>
                         <CardMedia
