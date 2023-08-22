@@ -12,7 +12,7 @@ export default function ItemSticker() {
 
     return (
         <>
-            <Link to="../ProductDetails/6">
+            <Link to="../ProductDetails/product7">
                 <Card style={{ width: 200, height: 400 }} sx={{ maxWidth: 345 }}>
                     <CardActionArea>
                         <CardMedia

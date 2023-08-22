@@ -12,7 +12,7 @@ export default function itemStandy() {
 
     return (
         <>
-            <Link to="../ProductDetails/5">
+            <Link to="../ProductDetails/product6">
                 <Card style={{ width: 200, height: 400 }} sx={{ maxWidth: 345 }}>
                     <CardActionArea>
                         <CardMedia

@@ -18,28 +18,15 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import productDetailJson from '../../components/ProductDetails/ProductDetail.json';
 import { useParams } from 'react-router-dom';
 
-// interface ProductDetailsProps {
-//     index: number;
-// }
-
 const ProductDetails: React.FC<any> = () => {
     const { index } = useParams();
-    // const productData = productDetailJson[index];
-    // const productName = productData.name;
-    // const productDescription = productData.description;
-    // const productSpecification = productData.specification;
-    // const productVariations = productData.variation;
-    // const images = productVariations.map(variation => ({
-    //     label: variation.label,
-    //     imgPath: variation.pic,
-    // }));
     if (index === undefined) {
-        return <div>Product index is missing.</div>;
+        return <h3 style={{paddingTop:60}}>Product index is missing.</h3>;
     }
-    const numericIndex = parseInt(index, 10);
-    const productData = productDetailJson[numericIndex];
+    // const numericIndex = parseInt(index, 12);
+    const productData = productDetailJson.find(product => product.id === index);
     if (!productData) {
-        return <div>Product not found</div>;
+        return <h3 style={{paddingTop:60}}>Product not found!</h3>;
     }
     const productName = productData.name;
     const productDescription = productData.description;
@@ -63,6 +50,7 @@ const ProductDetails: React.FC<any> = () => {
         const index = images.findIndex((image) => image.label === newAlignment);
         if (index !== -1) {
             setActiveStep(index);
+            console.log(event)
         }
         setAlignment(newAlignment);
 
@@ -190,7 +178,7 @@ const ProductDetails: React.FC<any> = () => {
                             <Grid md={2}>
                                 <p>Quantity:</p>
                             </Grid>
-                            <Grid md={3}>
+                            <Grid md={4}>
                                 <div style={{ display: 'flex', justifyContent: 'center', paddingTop: 8 }}>
                                     <ButtonGroup variant="outlined" aria-label="outlined button group">
                                         <Button onClick={handleDecrement}>-</Button>

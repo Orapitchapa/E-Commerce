@@ -1,6 +1,6 @@
 [
     {
-        "id" : 1,
+        "id" : "product1",
         "name" : "Bag",
         "description" : "Demon slayer Bag from Skechers",
         "specification" : {
@@ -25,7 +25,7 @@
         
     },
     {
-        "id" : 2,
+        "id" : "product2",
         "name" : "Card",
         "description" : "Demon slayer Card from BIGGA",
         "specification" : {
@@ -62,7 +62,7 @@
         
     },
     {
-        "id" : 3,
+        "id" : "product3",
         "name" : "Magnet",
         "description" : "Demon slayer Magnet from BIGGA",
         "specification" : {
@@ -99,7 +99,7 @@
         
     },
     {
-        "id" : 4,
+        "id" : "product4",
         "name" : "Sliper",
         "description" : "Demon slayer Sliper from Skechers",
         "specification" : {
@@ -136,7 +136,7 @@
         
     },
     {
-        "id" : 5,
+        "id" : "product5",
         "name" : "Sneaker",
         "description" : "Demon slayer Sneaker from Skechers",
         "specification" : {
@@ -172,7 +172,7 @@
         ]
     },
     {
-        "id" : 6,
+        "id" : "product6",
         "name" : "Standy",
         "description" : "Demon slayer Standy from BIGGA",
         "specification" : {
@@ -208,7 +208,7 @@
         ]
     },
     {
-        "id" : 7,
+        "id" : "product7",
         "name" : "Sticker",
         "description" : "Demon slayer Sticker from BIGONE",
         "specification" : {
@@ -244,7 +244,7 @@
         ]
     },
     {
-        "id" : 8,
+        "id" : "product8",
         "name" : "Tshirt",
         "description" : "Demon slayer Tshirt from Skechers",
         "specification" : {
