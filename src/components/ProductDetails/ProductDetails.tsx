@@ -23,7 +23,6 @@ const ProductDetails: React.FC<any> = () => {
     if (index === undefined) {
         return <h3 style={{paddingTop:60}}>Product index is missing.</h3>;
     }
-    // const numericIndex = parseInt(index, 12);
     const productData = productDetailJson.find(product => product.id === index);
     if (!productData) {
         return <h3 style={{paddingTop:60}}>Product not found!</h3>;
