@@ -31,11 +31,10 @@ const ProductDetails: React.FC<any> = () => {
     const productDescription = productData.description;
     const productSpecification = productData.specification;
     const productVariations = productData.variation;
-    const images = productVariations.map(variation => ({
+    const images = productData.variation.map(variation => ({
         label: variation.label,
         imgPath: variation.pic,
     }));
-
 
     const [activeStep, setActiveStep] = React.useState(0);
     const [alignment, setAlignment] = React.useState('');
@@ -123,7 +122,6 @@ const ProductDetails: React.FC<any> = () => {
                         >
                             <img style={{ height: 255 }} src={images[activeStep].imgPath} alt={images[activeStep].label} />
                         </Box>
-
                         <MobileStepper
                             sx={{ bgcolor: '#F2D8D8' }}
                             steps={maxSteps}
@@ -187,7 +185,7 @@ const ProductDetails: React.FC<any> = () => {
                                 </div>
                             </Grid>
                             <Grid md={5}>
-                                <p>{stock} pieces available</p>
+                                <p>{stock} pieces available 1234</p>
                             </Grid>
                         </Grid>
                         <div>
