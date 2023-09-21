@@ -185,7 +185,7 @@ const ProductDetails: React.FC<any> = () => {
                                 </div>
                             </Grid>
                             <Grid md={5}>
-                                <p>{stock} pieces available 1234</p>
+                                <p>{stock} pieces available 4567</p>
                             </Grid>
                         </Grid>
                         <div>
